@@ -25,23 +25,23 @@ class Game extends Component {
   renderGameView = () => {
     const {choicesList} = this.props
     const {id, imageUrl} = this.state
-    return
-    ;<>
-      <div>
-        <button onClick={this.onClickRock}>
-          <img src={imageUrl} />
-        </button>
-        <button onClick={this.onClickScissors}>
-          <img src={imageUrl} />
-        </button>
-      </div>
-
-      <div>
-        <button onClick={this.onClickPaper}>
-          <img src={imageUrl} />
-        </button>
-      </div>
-    </>
+    return (
+      <>
+        <div>
+          <button type="button" onClick={this.onClickRock}>
+            <img aria-label="button-image" src={imageUrl} />
+          </button>
+          <button type="button" onClick={this.onClickScissors}>
+            <img aria-label="button-image" src={imageUrl} />
+          </button>
+        </div>
+        <div>
+          <button type="button" onClick={this.onClickPaper}>
+            <img aria-label="button-image" src={imageUrl} />
+          </button>
+        </div>
+      </>
+    )
   }
 
   render() {
