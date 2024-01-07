@@ -3,33 +3,48 @@ import {Component} from 'react'
 import './index.css'
 
 class Game extends Component {
-  state = {score: 0}
+  state = {
+    score: 0,
+  }
 
-    const onClickRock = () => {
+  onClickRock = () => {}
 
-    }
+  onClickScissors = () => {}
 
-    const onClickScissors = () => {
+  onClickPaper = () => {}
 
-    }
+  onClickRules = () => (
+    <div>
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/rules-image.png"
+        alt="rules"
+      />
+    </div>
+  )
 
-    const onClickPaper = () => {
+  renderGameView = () => {
+    const {choicesList} = this.props
+    const {id, imageUrl} = this.state
+    return
+    ;<>
+      <div>
+        <button onClick={this.onClickRock}>
+          <img src={imageUrl} />
+        </button>
+        <button onClick={this.onClickScissors}>
+          <img src={imageUrl} />
+        </button>
+      </div>
 
-    }
-
-    const onClickRules = () => {
-        return
-        (
-           <div>
-                <img src="https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/rules-image.png"
-                    alt="rules"
-                />
-          </div>
-          )
-    }
+      <div>
+        <button onClick={this.onClickPaper}>
+          <img src={imageUrl} />
+        </button>
+      </div>
+    </>
+  }
 
   render() {
-    const {choicesList} = this.props
     const {score} = this.state
 
     return (
@@ -41,20 +56,9 @@ class Game extends Component {
             <p>{score}</p>
           </div>
         </div>
-        <div>
-          <button onClick={onClickRock}>
-            <img src="https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/rock-image.png" />
-          </button>
-          <button onClick={onClickScissors}>
-            <img src="https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/scissor-image.png" />
-          </button>
-        </div>
-            <button onClick={onClickPaper}>
-            <img src="https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/paper-image.png" />
-            </button>
-
-        <button onClick={onClickRules}>
-          <p>Rules</p>
+        {this.renderGameView()}
+        <button onClick={this.onClickRules} type="button">
+          <p>RULES</p>
         </button>
       </div>
     )
